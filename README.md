@@ -6,7 +6,7 @@ connecting your development board, you should be able to compile and program.
 
 ### Operation ###
 
-For fast development and rapid debugging, the program initializes UART2 at 9600 baud to
+For fast development and rapid debugging, the program initializes UART2 at 19200 baud to
 communicate with the outside world. By default, when including <stdio.h> in any MPLABX
 project, the library will select UART2 to print to. Fortunately, the DM320007C has an
 MCP2221 USB-UART brige on board - plug the device in, install the drivers, and open
@@ -26,4 +26,4 @@ After building and programming your DM320007C:
 Perform reads from the COM port, you should see "Hello World!" print rapidily. A
 Windows Powershell script file is provided to perform constant reads on the port.
 
-
+Note: MPLAB X v5.1+ is required.

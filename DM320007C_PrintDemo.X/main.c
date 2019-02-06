@@ -20,10 +20,6 @@ int main(int argc, char **argv){
     TRISHCLR = 0xFFFF;  // Assign all of Port H as outputs.
     LATHCLR = 0xFFFF;   // Clear the state register.
     
-    /* The UART derives it's clock from the peripherial bus clock, which
-     * is sourced from the system clock (200 MHz). 200/(P2DIV+1) = 50 MHz */
-    PB2DIV = 3;
-    
     // Set multivector interrupt mode.
     INTCONbits.MVEC = 1;
     

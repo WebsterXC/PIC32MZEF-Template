@@ -1,52 +1,54 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <proc/p32mz2048efm144.h>
-
-#include "timers.h"
-#include "uart.h"
+#include "include/timers.h"
+#include "include/uart.h"
 
 /* This project is meant to be a solid foundation for building programs with
  * the DM320007C development board from Microchip. It takes care of defining
  * the correct configuration bits, interrupt setup, and printf() functionality.
  * 
+ * I purchased one of these boards and was frustrated that there was no quick
+ * way to get up and running. The examples don't help much and generally require
+ * so much toolchain and system path setup, it never ends up compiling. This
+ * project is intended on being imported to MPLABX, and immidiately ready for
+ * compile & download to the development kit.
+ * 
  * This program uses the Timer1 interrupt to flash the green user LED found
  * on the board. It also gives default settings for getting printf() to work,
  * which by default uses UART2.
  */
+static void wait(unsigned int);
 
-static void wait(void);
 int main(int argc, char **argv){
     
-    TRISHCLR = 0xFFFF;  // Assign all of Port H as outputs.
-    LATHCLR = 0xFFFF;   // Clear the state register.
+    // Configure LED2 to flash (timer 1 interrupt).
+    TRISHbits.TRISH2 = 0;
+    LATHbits.LATH2 = 1;
     
     // Set multivector interrupt mode.
     INTCONbits.MVEC = 1;
-    
-    /* Initialize the shadow interrupt registers. This is a predefined
-     * value that Microchip has said to use if you don't care about
-     * using or wanting to maintain shadow registers. */
-    PRISS = 0x76543210;
     
     // Initialize peripherials.
     timer1_init();
     uart_init();
     
     __builtin_enable_interrupts();
-    wait();
     
     char message[] = "Hello World!\n\r\0";
     while(1){
         printf(message);
-        wait();
+        wait(100000);
     }
  
     return 1;
 }
 
-/* Non-Timer based wait. */
-static void wait(void){
+// Blocking delay - should not normally be used as it ties up the CPU.
+static void wait(unsigned int time){
     unsigned int t;
-    for( t=0 ; t < 100000 ; t++);
+    
+    for(t = 0; t < time; t++);
+    return;
 }
 

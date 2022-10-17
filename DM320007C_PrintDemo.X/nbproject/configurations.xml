@@ -6,6 +6,8 @@
                    projectFiles="true">
       <itemPath>include/uart.h</itemPath>
       <itemPath>include/timers.h</itemPath>
+      <itemPath>include/i2c.h</itemPath>
+      <itemPath>include/eeprom.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -19,6 +21,8 @@
       <itemPath>config.c</itemPath>
       <itemPath>uart.c</itemPath>
       <itemPath>timers.c</itemPath>
+      <itemPath>i2c.c</itemPath>
+      <itemPath>eeprom.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -211,6 +215,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.dataflash" value="true"/>
         <property key="memories.eeprom" value="true"/>

@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c interrupts.c config.c uart.c timers.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c interrupts.c config.c uart.c timers.c i2c.c eeprom.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/interrupts.o ${OBJECTDIR}/config.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/timers.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/interrupts.o.d ${OBJECTDIR}/config.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/timers.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/interrupts.o ${OBJECTDIR}/config.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/timers.o ${OBJECTDIR}/i2c.o ${OBJECTDIR}/eeprom.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/interrupts.o.d ${OBJECTDIR}/config.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/timers.o.d ${OBJECTDIR}/i2c.o.d ${OBJECTDIR}/eeprom.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/interrupts.o ${OBJECTDIR}/config.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/timers.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/interrupts.o ${OBJECTDIR}/config.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/timers.o ${OBJECTDIR}/i2c.o ${OBJECTDIR}/eeprom.o
 
 # Source Files
-SOURCEFILES=main.c interrupts.c config.c uart.c timers.c
+SOURCEFILES=main.c interrupts.c config.c uart.c timers.c i2c.c eeprom.c
 
 
 
@@ -137,6 +137,18 @@ ${OBJECTDIR}/timers.o: timers.c  .generated_files/flags/default/138e4fb2c8900935
 	@${RM} ${OBJECTDIR}/timers.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/timers.o.d" -o ${OBJECTDIR}/timers.o timers.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
+${OBJECTDIR}/i2c.o: i2c.c  .generated_files/flags/default/f19f9df978ce81a8db89e2935f465f969951d740 .generated_files/flags/default/c268c6a655b4f520e25979bf8851814e0e8bbfa0
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/i2c.o.d 
+	@${RM} ${OBJECTDIR}/i2c.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/i2c.o.d" -o ${OBJECTDIR}/i2c.o i2c.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
+${OBJECTDIR}/eeprom.o: eeprom.c  .generated_files/flags/default/a032277fb74da077de1ad9cc53580ff2d83c0980 .generated_files/flags/default/c268c6a655b4f520e25979bf8851814e0e8bbfa0
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/eeprom.o.d 
+	@${RM} ${OBJECTDIR}/eeprom.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/eeprom.o.d" -o ${OBJECTDIR}/eeprom.o eeprom.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
 else
 ${OBJECTDIR}/main.o: main.c  .generated_files/flags/default/6a3af28e955727c8306fe94ca4b3f4b9ea8ef551 .generated_files/flags/default/c268c6a655b4f520e25979bf8851814e0e8bbfa0
 	@${MKDIR} "${OBJECTDIR}" 
@@ -167,6 +179,18 @@ ${OBJECTDIR}/timers.o: timers.c  .generated_files/flags/default/2711f16f72e9ddb7
 	@${RM} ${OBJECTDIR}/timers.o.d 
 	@${RM} ${OBJECTDIR}/timers.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/timers.o.d" -o ${OBJECTDIR}/timers.o timers.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
+${OBJECTDIR}/i2c.o: i2c.c  .generated_files/flags/default/6ee75c049f32dc6fee1f62527ec667488064645a .generated_files/flags/default/c268c6a655b4f520e25979bf8851814e0e8bbfa0
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/i2c.o.d 
+	@${RM} ${OBJECTDIR}/i2c.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/i2c.o.d" -o ${OBJECTDIR}/i2c.o i2c.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
+${OBJECTDIR}/eeprom.o: eeprom.c  .generated_files/flags/default/a50096c4a3bdf7f5570daa3de05644143d5a751a .generated_files/flags/default/c268c6a655b4f520e25979bf8851814e0e8bbfa0
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/eeprom.o.d 
+	@${RM} ${OBJECTDIR}/eeprom.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/eeprom.o.d" -o ${OBJECTDIR}/eeprom.o eeprom.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 endif
 

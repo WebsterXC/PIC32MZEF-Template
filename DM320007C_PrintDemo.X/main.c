@@ -20,7 +20,10 @@
  */
 static void wait(unsigned int);
 
+#define ADDR 0x1D008000
+
 int main(int argc, char **argv){
+    char message[] = "Hello World!\n\r\0";
     
     // Configure LED2 to flash (timer 1 interrupt).
     TRISHbits.TRISH2 = 0;
@@ -35,7 +38,7 @@ int main(int argc, char **argv){
     
     __builtin_enable_interrupts();
     
-    char message[] = "Hello World!\n\r\0";
+    printf("----Reset----\r\n");
     while(1){
         printf(message);
         wait(100000);

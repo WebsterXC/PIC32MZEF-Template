@@ -15,6 +15,9 @@ your favorite terminal program. From there, printf() will print to the PC termin
 The program also provides a basic example on how to initialize and execute ISRs. It
 initializes Timer1 to flash the green LED on RH2 using a timer interrupt.
 
+I've also added a basic I2C driver which interfaces with an optional EEPROM. It uses
+I2C2 to read/write/erase the device.
+
 ### Setup ###
 
 This project should be a direct import to MPLABX. After compiling and programming
